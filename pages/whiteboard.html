@@ -1,1 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SketchFlow Learn – Board</title>
+<link rel="icon" href="../assets/icon.png">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header>
+  <a class="brand" href="index.html" title="Back to home"><img src="../assets/icon.png" alt=""><span>SketchFlow Learn</span></a>
+  <span class="sp"></span>
+  <label class="chk"><input type="checkbox" id="snap"><span>Snap to grid</span></label>
+  <label>Background <select id="bg"><option value="dots">Dots</option><option value="grid">Grid</option><option value="plain">Plain</option></select></label>
+  <label>Zoom <input type="number" id="zoom" min="10" max="800" value="100" style="width:64px"> %</label>
+  <span class="sp"></span>
+  <button id="undo" title="Ctrl+Z">Undo</button>
+  <button id="redo" title="Ctrl+Y">Redo</button>
+  <button id="clear">Clear</button>
+  <span class="sp"></span>
+  <button id="png">Export PNG</button>
+  <button id="jpg">Export JPEG</button>
+  <button id="save" title="Ctrl+S">Save JSON</button>
+  <button id="open">Open JSON</button>
+  <button id="copyimg">Copy image</button><button id="fsbtn">Fullscreen</button><button id="keys">Shortcuts</button><button id="theme"></button>
+</header>
 
+<nav aria-label="Tools">
+  <button data-tool="select" title="Select (V)">Select</button>
+  <button data-tool="hand" title="Hand: drag to move around the canvas (H)">Hand</button>
+  <button data-tool="zoom" title="Zoom: click to zoom in, Alt/Shift+click to zoom out, drag to zoom to an area (Z)">Zoom</button>
+  <button data-tool="pen" title="Pen (P)">Pen</button>
+  <button data-tool="highlight" title="Highlighter (K)">Highlighter</button>
+  <button data-tool="eraser" title="Eraser (E)">Eraser</button>
+  <button data-tool="line" title="Line (L)">Line</button>
+  <button data-tool="arrow" title="Arrow (A)">Arrow</button>
+  <button data-tool="rect" title="Rectangle (R)">Rectangle</button>
+  <button data-tool="ellipse" title="Ellipse (O)">Ellipse</button>
+  <button data-tool="triangle" title="Triangle (G)">Triangle</button>
+  <button data-tool="diamond" title="Diamond (D)">Diamond</button>
+  <button data-tool="star" title="Star (S)">Star</button>
+  <button data-tool="text" title="Text (T)">Text</button>
+  <button data-tool="image" title="Add image">Image</button>
+</nav>
+
+<div id="stage" data-bg="dots"><canvas id="board"></canvas><div id="zb"></div></div>
+
+<aside>
+  <h2>Properties</h2>
+  <div class="pp">
+    <label class="w2">Stroke <input type="color" id="color" value="#2563eb"><input type="text" id="colorHex" value="#2563eb" maxlength="7"></label>
+    <label class="w2"><input type="checkbox" id="fill"> Fill <input type="color" id="fillc" value="#fde68a"><input type="text" id="fillcHex" value="#fde68a" maxlength="7"></label>
+    <div class="sw w2" id="sw"></div>
+    <button id="eyedrop" class="w2">Pick color from screen</button>
+    <label>Width <input type="number" id="size" min="1" max="100" value="4"></label>
+    <label>Opacity % <input type="number" id="op" min="0" max="100" value="100"></label>
+    <input type="range" id="opR" class="w2" min="0" max="100" value="100" aria-label="Opacity">
+    <label>Dash <select id="dash"><option value="solid">Solid</option><option value="dashed">Dashed</option><option value="dotted">Dotted</option></select></label>
+    <label>Radius <input type="number" id="rad" min="0" max="500" value="0"></label>
+    <label>Font px <input type="number" id="fs" min="8" max="300" value="24"></label>
+    <label class="chk"><input type="checkbox" id="bold"><span><b>B</b></span></label>
+    <label class="chk"><input type="checkbox" id="italic"><span><i>I</i></span></label>
+    <label>Rotate &deg; <input type="number" id="rot" min="-360" max="360" value="0"></label>
+    <label>X <input type="number" id="x"></label>
+    <label>Y <input type="number" id="y"></label>
+    <label>W <input type="number" id="w" min="1"></label>
+    <label>H <input type="number" id="h" min="1"></label>
+  </div>
+  <h2>Layers</h2>
+  <div class="btns">
+    <button id="fwd">Forward</button><button id="back">Backward</button>
+    <button id="dup" title="Ctrl+D">Duplicate</button><button id="del" title="Delete">Delete</button>
+  </div>
+  <p id="empty">Nothing on the board yet. Pick a tool and draw.</p>
+  <ul id="layers"></ul>
+  <p id="status">Autosaves in this browser</p>
+</aside>
+
+<input type="file" id="file" accept="image/*" hidden>
+<input type="file" id="openfile" accept=".json,application/json" hidden>
+
+<script src="../js/main.js"></script>
+
+</body>
+</html>
