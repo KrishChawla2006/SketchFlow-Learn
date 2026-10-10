@@ -42,8 +42,8 @@ sketchflow-learn/
 │    ├── index.js          Home page script
 │    └── main.js           Whiteboard logic
 ├── pages/
-│   ├── index.html        Home page (start here)
-│   └── whiteboard.html   The whiteboard itself
+    ├── index.html        Home page (start here)
+    └── whiteboard.html   The whiteboard itself
 ```
 
 ---
